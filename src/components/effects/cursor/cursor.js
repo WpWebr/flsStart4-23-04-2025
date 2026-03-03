@@ -1,14 +1,14 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+﻿// Подключение функционала "Чертоги Фрилансера"
 import { FLS, isMobile } from "@js/common/functions.js";
 
-// Базові стилі
+// Базовые стили
 import "./cursor.scss";
 
 export function customCursor() {
 	const wrapper = document.querySelector('[data-fls-cursor]')
 	if (wrapper && !isMobile.any()) {
 		const isShadowTrue = document.querySelector('[data-fls-cursor-shadow]')
-		// Створюємо та додаємо об'єкт курсору
+		// Создаем и добавляем объект курсора
 		const cursor = document.createElement('div');
 		cursor.classList.add('fls-cursor');
 		cursor.style.opacity = 0;
