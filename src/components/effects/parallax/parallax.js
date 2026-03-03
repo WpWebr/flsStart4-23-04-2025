@@ -1,4 +1,4 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+﻿// Подключение функционала "Чертоги Фрилансера"
 import { FLS, slideUp, slideDown, slideToggle, dataMediaQueries } from "@js/common/functions.js";
 
 import './parallax.scss'
@@ -50,17 +50,17 @@ Parallax.Each = class {
 			this.parent.dataset.flsParallaxCenter : 'center';
 
 		if (positionParent.top < 30 && positionParent.bottom > -30) {
-			// Елемент у початковому положенні (0,0), коли батько знаходиться по відношенню до екрану: 
+			// Элемент в начальном положении (0,0), когда родитель находится относительно экрана:
 			switch (centerPoint) {
-				// верхній точці (початок батька стикається верхнього краю екрану)
+				// в верхней точке (начало родителя касается верхнего края экрана)
 				case 'top':
 					this.offset = -1 * topToWindow;
 					break;
-				// центрі екрана (середина батька у середині екрана)
+				// в центре экрана (середина родителя в середине экрана)
 				case 'center':
 					this.offset = (heightWindow / 2) - (topToWindow + (heightParent / 2));
 					break;
-				// Початок: нижня частина екрана = верхня частина батька
+				// внизу: нижняя часть экрана = верхняя часть родителя
 				case 'bottom':
 					this.offset = heightWindow - (topToWindow + heightParent);
 					break;
