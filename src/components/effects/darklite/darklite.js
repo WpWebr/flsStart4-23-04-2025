@@ -1,4 +1,4 @@
-// Підключення функціоналу "Чортоги Фрілансера"
+﻿// Подключение функционала "Чертоги Фрилансера"
 import { isMobile, FLS } from "@js/common/functions.js";
 
 import './darklite.scss'
@@ -13,22 +13,22 @@ function darkliteInit() {
 	// HTML
 	const htmlBlock = document.documentElement;
 
-	// Отримуємо збережену тему
+	// Получаем сохраненную тему
 	const saveUserTheme = localStorage.getItem('fls-user-theme');
 
 	let userTheme;
 
 	if (document.querySelector('[data-fls-darklite-time]')) {
-		// Користувацький проміжок часу
+		// Пользовательский промежуток времени
 		let customRange = document.querySelector('[data-fls-darklite-time]').dataset.flsDarkliteTime
 		customRange = customRange || '18,5'
 		const timeFrom = +customRange.split(',')[0]
 		const timeTo = +customRange.split(',')[1]
 		console.log(timeFrom);
-		// Робота з часом
+		// Работа со временем
 		userTheme = getHours() >= timeFrom && getHours() <= timeTo ? 'dark' : 'light'
 	} else {
-		// Робота з системними налаштуваннями
+		// Работа с системными настройками
 		if (window.matchMedia) {
 			userTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 		}
@@ -37,10 +37,9 @@ function darkliteInit() {
 		});
 	}
 
-	// Зміна теми по кліку
+	// Смена темы по клику
 	const themeButton = document.querySelector('[data-fls-darklite-set]')
 	const resetButton = document.querySelector('[data-fls-darklite-reset]')
-
 	if (themeButton) {
 		themeButton.addEventListener("click", function (e) {
 			changeTheme(true);
@@ -51,14 +50,14 @@ function darkliteInit() {
 			localStorage.setItem('fls-user-theme', '');
 		})
 	}
-	// Функція додавання класу теми
+	// Функция добавления класса темы
 	function setThemeClass() {
 		htmlBlock.setAttribute(`data-fls-darklite-${saveUserTheme ? saveUserTheme : userTheme}`, '')
 	}
-	// Додаємо клас теми
+	// Добавляем класс темы
 	setThemeClass();
 
-	// Функція зміни теми
+	// Функция смены темы
 	function changeTheme(saveTheme = false) {
 		let currentTheme = htmlBlock.hasAttribute('data-fls-darklite-light') ? 'light' : 'dark';
 		let newTheme;
