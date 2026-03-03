@@ -1,22 +1,22 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+﻿// Подключение функционала "Чертоги Фрилансера"
 import { gotoBlock, FLS } from "@js/common/functions.js";
-// Підключення функціоналу модуля форм
+// Подключение функционала модуля форм
 import { formValidate } from "../_functions.js";
 
 function formInit() {
-	// Відправлення форм
+	// Отправка форм
 	function formSubmit() {
 		const forms = document.forms;
 		if (forms.length) {
 			for (const form of forms) {
-				// Прибираємо вбудовану валідацію
+				// Убираем встроенную валидацию
 				!form.hasAttribute('data-fls-form-novalidate') ? form.setAttribute('novalidate', true) : null
-				// Подія відправки
+				// Событие отправки
 				form.addEventListener('submit', function (e) {
 					const form = e.target;
 					formSubmitAction(form, e);
 				});
-				// Подія очистки
+				// Событие очистки
 				form.addEventListener('reset', function (e) {
 					const form = e.target;
 					formValidate.formClean(form);
@@ -26,7 +26,7 @@ function formInit() {
 		async function formSubmitAction(form, e) {
 			const error = formValidate.getErrors(form)
 			if (error === 0) {
-				if (form.dataset.flsForm === 'ajax') { // Якщо режим ajax
+				if (form.dataset.flsForm === 'ajax') { // Если режим ajax
 					e.preventDefault();
 					const formAction = form.getAttribute('action') ? form.getAttribute('action').trim() : '#';
 					const formMethod = form.getAttribute('method') ? form.getAttribute('method').trim() : 'GET';
@@ -44,7 +44,7 @@ function formInit() {
 						FLS("_FLS_FORM_AJAX_ERR")
 						form.classList.remove('--sending')
 					}
-				} else if (form.dataset.flsForm === 'dev') {	// Якщо режим розробки
+				} else if (form.dataset.flsForm === 'dev') {	// Если режим разработки
 					e.preventDefault()
 					formSent(form)
 				}
@@ -56,29 +56,29 @@ function formInit() {
 				}
 			}
 		}
-		// Дії після надсилання форми
+		// Действия после отправки формы
 		function formSent(form, responseResult = ``) {
-			// Створюємо подію відправлення форми
+			// Создаем событие отправки формы
 			document.dispatchEvent(new CustomEvent("formSent", {
 				detail: {
 					form: form
 				}
 			}));
-			// Показуємо попап, якщо підключено модуль попапів 
-			// та для форми вказано налаштування
+			// Показываем попап, если подключен модуль попапов 
+			// и для формы указана настройка
 			setTimeout(() => {
 				if (window.flsPopup) {
 					const popup = form.dataset.flsFormPopup;
 					popup ? window.flsPopup.open(popup) : null;
 				}
 			}, 0);
-			// Очищуємо форму
+			// Очищаем форму
 			formValidate.formClean(form);
-			// Повідомляємо до консолі
+			// Выводим сообщение в консоль
 			FLS(`_FLS_FORM_SEND`);
 		}
 	}
-	// Робота із полями форми.
+	// Работа с полями формы.
 	function formFieldsInit() {
 		document.body.addEventListener("focusin", function (e) {
 			const targetElement = e.target;
@@ -98,7 +98,7 @@ function formInit() {
 					targetElement.classList.remove('--form-focus');
 					targetElement.parentElement.classList.remove('--form-focus');
 				}
-				// Миттєва валідація
+				// Мгновенная валидация
 				targetElement.hasAttribute('data-fls-form-validatenow') ? formValidate.validateInput(targetElement) : null;
 			}
 		});
@@ -108,3 +108,4 @@ function formInit() {
 }
 document.querySelector('[data-fls-form]') ?
 	window.addEventListener('load', formInit) : null
+
