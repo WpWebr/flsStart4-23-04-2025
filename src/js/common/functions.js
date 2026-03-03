@@ -1,4 +1,4 @@
-// FLS (Full Logging System)
+﻿// FLS (Full Logging System)
 export function FLS(text, vars = '') {
 	if (flsLogging) {
 		if (flsLang[text]) {
@@ -20,14 +20,14 @@ export function FLS(text, vars = '') {
 		}, 0);
 	}
 }
-/* Перевірка мобільного браузера */
+/* Проверка мобильного браузера */
 export let isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
-/* Додавання класу touch для HTML, якщо браузер мобільний */
+/* Добавление класса touch для HTML, если браузер мобильный */
 export function addTouchClass() {
-	// Додавання класу _touch для HTML, якщо браузер мобільний
+	// Добавление класса _touch для HTML, если браузер мобильный
 	if (isMobile.any()) document.documentElement.classList.add('touch');
 }
-// Додавання loaded для HTML після повного завантаження сторінки
+// Добавление loaded для HTML после полной загрузки страницы
 export function addLoadedClass() {
 	if (!document.documentElement.hasAttribute('data-fls-preloader-loading')) {
 		window.addEventListener("load", function () {
@@ -37,16 +37,16 @@ export function addLoadedClass() {
 		});
 	}
 }
-// Отримання хешу на адресі сайту
+// Получение хеша в адресе сайта
 export function getHash() {
 	if (location.hash) { return location.hash.replace('#', ''); }
 }
-// Вказівка хеша на адресу сайту
+// Установка хеша в адресе сайта
 export function setHash(hash) {
 	hash = hash ? `#${hash}` : window.location.href.split('#')[0];
 	history.pushState('', '', hash);
 }
-// Допоміжні модулі плавного розкриття та закриття об'єкта
+// Вспомогательные модули плавного раскрытия и закрытия объекта
 export let slideUp = (target, duration = 500, showmore = 0) => {
 	if (!target.classList.contains('--slide')) {
 		target.classList.add('--slide');
@@ -71,7 +71,7 @@ export let slideUp = (target, duration = 500, showmore = 0) => {
 			target.style.removeProperty('transition-duration');
 			target.style.removeProperty('transition-property');
 			target.classList.remove('--slide');
-			// Створюємо подію 
+			// Создаем событие
 			document.dispatchEvent(new CustomEvent("slideUpDone", {
 				detail: {
 					target: target
@@ -106,7 +106,7 @@ export let slideDown = (target, duration = 500, showmore = 0) => {
 			target.style.removeProperty('transition-duration');
 			target.style.removeProperty('transition-property');
 			target.classList.remove('--slide');
-			// Створюємо подію
+			// Создаем событие
 			document.dispatchEvent(new CustomEvent("slideDownDone", {
 				detail: {
 					target: target
@@ -122,7 +122,7 @@ export let slideToggle = (target, duration = 500) => {
 		return slideUp(target, duration);
 	}
 }
-// Допоміжні модулі блокування прокручування та стрибка
+// Вспомогательные модули блокировки прокрутки и скачка
 export let bodyLockStatus = true
 export let bodyLockToggle = (delay = 500) => {
 	if (document.documentElement.hasAttribute("data-fls-scrolllock")) {
@@ -164,38 +164,38 @@ export let bodyLock = (delay = 500) => {
 		}, delay)
 	}
 }
-// Отримати ім'я по значенню в об'єкті
+// Получить имя по значению в объекте
 export function getKeyByValue(object, value) {
 	return Object.keys(object).find(key => object[key] === value);
 }
-// Отримати цифри з рядка
+// Получить цифры из строки
 export function getDigFromString(item) {
 	return parseInt(item.replace(/[^\d]/g, ''))
 }
-// Форматування цифр типу 100 000 000
+// Форматирование цифр типа 100 000 000
 export function getDigFormat(item, sepp = ' ') {
 	return item.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, `$1${sepp}`);
 }
-// Прибрати клас з усіх елементів масиву
+// Убрать класс у всех элементов массива
 export function removeClasses(array, className) {
 	for (var i = 0; i < array.length; i++) {
 		array[i].classList.remove(className);
 	}
 }
-// Унікалізація масиву
+// Уникализация массива
 export function uniqArray(array) {
 	return array.filter((item, index, self) => self.indexOf(item) === index)
 }
-// Функція отримання індексу всередині батьківського елемента
+// Функция получения индекса внутри родительского элемента
 export function indexInParent(parent, element) {
 	const array = Array.prototype.slice.call(parent.children);
 	return Array.prototype.indexOf.call(array, element);
 };
-// Функція перевіряє чи об'єкт видимий
+// Функция проверяет, видим ли объект
 export function isHidden(el) {
 	return (el.offsetParent === null)
 }
-// Обробка медіа запитів з атрибутів
+// Обработка медиазапросов из атрибутов
 export function dataMediaQueries(array, dataSetValue) {
 	const media = Array.from(array)
 		.filter(item => item.dataset[dataSetValue])
@@ -206,7 +206,7 @@ export function dataMediaQueries(array, dataSetValue) {
 
 	if (media.length === 0) return [];
 
-	// Отримуємо унікальні брейкпоінти
+	// Получаем уникальные брейкпоинты
 	const breakpointsArray = media.map(({ value, type }) => `(${type}-width: ${value}px),${value},${type}`);
 	const uniqueQueries = [...new Set(breakpointsArray)];
 
@@ -214,13 +214,13 @@ export function dataMediaQueries(array, dataSetValue) {
 		const [mediaQuery, mediaBreakpoint, mediaType] = query.split(',');
 		const matchMedia = window.matchMedia(mediaQuery);
 
-		// Фільтруємо об'єкти з потрібними умовами
+		// Фильтруем объекты с нужными условиями
 		const itemsArray = media.filter(item => item.value === mediaBreakpoint && item.type === mediaType);
 
 		return { itemsArray, matchMedia }
 	});
 }
-// Модуль плавної проктутки до блоку
+// Модуль плавной прокрутки к блоку
 export const gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) => {
 	const targetBlockElement = document.querySelector(targetBlock);
 	if (targetBlockElement) {
@@ -241,12 +241,12 @@ export const gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop 
 				headerItemHeight = headerElement.offsetHeight;
 			}
 		}
-		// Закриваємо меню, якщо воно відкрите
+		// Закрываем меню, если оно открыто
 		if (document.documentElement.hasAttribute("[data-fls-menu-open]")) {
 			bodyUnlock()
 			document.documentElement.removeAttribute("[data-fls-menu-open]")
 		}
-		// Прокручування стандартними засобами
+		// Прокрутка стандартными средствами
 		let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
 		targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
 		targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
