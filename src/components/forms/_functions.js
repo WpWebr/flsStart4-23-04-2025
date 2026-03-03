@@ -1,7 +1,7 @@
-// Підключення функціоналу "Чортоги Фрілансера"
+﻿// Подключение функционала "Чертоги Фрилансера"
 import { FLS } from "@js/common/functions.js"
 
-// Валідація форм
+// Валидация форм
 export let formValidate = {
 	getErrors(form) {
 		FLS(`_FLS_FORM_VALIDATE`);
