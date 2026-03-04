@@ -1,4 +1,4 @@
-/* Головний блок */
+/* Главный блок */
 .fls-preloader {
 	pointer-events: none;
 	z-index: -1;
@@ -12,21 +12,21 @@
 	align-items: center;
 	transition: all 0.8s 0.3s;
 }
-/* Блок з елементами */
+/* Блок с элементами */
 .fls-preloader__body {
 	padding: 0.93rem;
 	max-width: 31.25rem;
 	display: flex;
 	flex-direction: column;
 }
-/* Блок з лічильником */
+/* Блок со счетчиком */
 .fls-preloader__counter {
 	font-size: 10rem;
 }
-/* Прогресбар */
+/* Прогрессбар */
 .fls-preloader__line {
 }
-/* Лінія прогресбару */
+/* Линия прогрессбара */
 .fls-preloader__line span {
 	display: inline-block;
 	transition: width 0.2s ease;
