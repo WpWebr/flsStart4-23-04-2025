@@ -1,25 +1,25 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+// Подключение функционала
 import { isMobile, FLS } from "@js/common/functions.js";
 
 /*
-Документація по роботі у шаблоні: https://www.lightgalleryjs.com/docs/
-Документація плагіна: https://www.lightgalleryjs.com/docs/
-Сніппет(HTML):
+Документация по работе в шаблоне: https://www.lightgalleryjs.com/docs/
+Документация плагина: https://www.lightgalleryjs.com/docs/
+Сниппет (HTML):
 */
 
-// Підключення базового набору функціоналу
+// Подключение базового набора функционала
 import lightGallery from 'lightgallery';
 const KEY = '7EC452A9-0CFD441C-BD984C7C-17C8456E';
 
-// Плагіни
+// Плагины
 // lgZoom, lgAutoplay, lgComment, lgFullscreen, lgHash, lgPager, lgRotate, lgShare, lgThumbnail, lgVideo, lgMediumZoom
 // import lgThumbnail from 'lightgallery/plugins/thumbnail/lg-thumbnail.min.js'
 //import lgZoom from 'lightgallery/plugins/zoom/lg-zoom.min.js'
 
-// Базові стилі
+// Базовые стили
 import './assets/lightgallery.css';
 
-// Стилі доповнень
+// Стили дополнений
 // import './assets/lg-transitions.css';
 // import './assets/lg-thumbnail.css';
 // import './assets/lg-video.css';
@@ -34,7 +34,7 @@ import './assets/lightgallery.css';
 // import './assets/lg-medium-zoom.css';
 // import './assets/lg-relative-caption.css';
 
-// Усі стилі
+// Все стили
 // import './assets/lightgallery-bundle.css';
 
 /*
