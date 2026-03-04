@@ -1,10 +1,10 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { FLS } from "@js/common/functions.js";
-// Підключення доповнення
+// Подключение дополнения
 import Isotope from 'isotope-layout/js/isotope.js';
-// Підключення стилів
+// Подключение стилей
 import './masonry.scss'
-// Застосування
+// Применение
 function masonryRun() {
 	document.addEventListener('click', documentActions);
 	const isotope = document.querySelector('[data-fls-masonry]')
@@ -15,7 +15,7 @@ function masonryRun() {
 			gutter: 20
 		}
 	})
-	// Функціонал фільтру
+	// Функционал фильтра
 	function documentActions(e) {
 		const targetElement = e.target
 		if (targetElement.closest('[data-fls-masonry-filter-link]')) {
