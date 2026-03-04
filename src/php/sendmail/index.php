@@ -10,7 +10,7 @@
 	$mail->Subject = 'Привет! Новое письмо WP';
 
 	// Тело письма
-	$body = '<h1>Зустрічайте супер листа!</h1>';
+	$body = '<h1>Встречайте супер сообщение!</h1>';
 
 	//if(trim(!empty($_POST['email']))){
 		//$body.=$_POST['email'];
@@ -24,7 +24,7 @@
 		// загружаем файл
 		if (copy($_FILES['image']['tmp_name'], $filePath)){
 			$fileAttach = $filePath;
-			$body.='<p><strong>Фото у додатку</strong>';
+			$body.='<p><strong>Фото в приложении</strong>';
 			$mail->addAttachment($fileAttach);
 		}
 	}
@@ -34,9 +34,9 @@
 
 	// Отправляем
 	if (!$mail->send()) {
-		$message = 'Помилка';
+		$message = 'Ошибка';
 	} else {
-		$message = 'Дані надіслані!';
+		$message = 'Данные отправленны!';
 	}
 
 	$response = ['message' => $message];
