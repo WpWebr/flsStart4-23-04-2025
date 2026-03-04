@@ -8,7 +8,7 @@ yarn-error.log*
 dist/
 
 # Вихідна збірка шаблонів (якщо не треба пушити)
-template_modules/
+# template_modules/
 
 # Лог файли
 *.log
