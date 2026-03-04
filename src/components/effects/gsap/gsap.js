@@ -1,4 +1,4 @@
-﻿// Подключение функционала "Чертоги Фрилансера"
+// Подключение функционала 
 import { FLS } from "@js/common/functions.js";
 // Документация: https://www.npmjs.com/package/gsap
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";

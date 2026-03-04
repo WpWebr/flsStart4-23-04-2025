@@ -1,4 +1,4 @@
-﻿// Подключение функционала "Чертоги Фрилансера"
+// Подключение функционала 
 import { isMobile, FLS } from "@js/common/functions.js";
 
 import './darklite.scss'

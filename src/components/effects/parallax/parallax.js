@@ -1,4 +1,4 @@
-﻿// Подключение функционала "Чертоги Фрилансера"
+// Подключение функционала 
 import { FLS, slideUp, slideDown, slideToggle, dataMediaQueries } from "@js/common/functions.js";
 
 import './parallax.scss'

@@ -24,3 +24,5 @@ Thumbs.db
 *.env
 .env.*
 docker-compose.override.yml
+
+.codex-local-rules.txt

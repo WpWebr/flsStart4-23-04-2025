@@ -1,4 +1,4 @@
-﻿// Подключение функционала "Чертоги Фрилансера"
+// Подключение функционала 
 import { FLS } from "@js/common/functions.js";
 // Документация: https://www.npmjs.com/package/split-type
 import SplitType from 'split-type'

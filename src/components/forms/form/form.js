@@ -1,4 +1,4 @@
-﻿// Подключение функционала "Чертоги Фрилансера"
+// Подключение функционала 
 import { gotoBlock, FLS } from "@js/common/functions.js";
 // Подключение функционала модуля форм
 import { formValidate } from "../_functions.js";

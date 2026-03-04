@@ -1,4 +1,4 @@
-// Подключение функционала "Чертоги Фрилансера"
+// Подключение функционала 
 import { bodyLockStatus, bodyLockToggle, FLS } from "@js/common/functions.js"
 
 import './menu.scss'

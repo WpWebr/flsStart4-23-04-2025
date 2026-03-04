@@ -1,4 +1,4 @@
-// Підключення функціоналу "Чортоги Фрілансера"
+// Підключення функціоналу 
 import { isMobile, FLS } from "@js/common/functions.js";
 
 import './fullpage.scss'

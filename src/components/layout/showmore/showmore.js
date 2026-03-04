@@ -1,4 +1,4 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+// Подключение функционала 
 import { FLS, slideUp, slideDown, slideToggle, dataMediaQueries } from "@js/common/functions.js";
 
 import './showmore.scss'
@@ -8,21 +8,21 @@ export function showMore() {
 	let showMoreBlocksRegular;
 	let mdQueriesArray;
 	if (showMoreBlocks.length) {
-		// Отримання звичайних об'єктів
+		// Получение обычных объектов
 		showMoreBlocksRegular = Array.from(showMoreBlocks).filter(function (item, index, self) {
 			return !item.dataset.flsShowmoreMedia;
 		});
-		// Ініціалізація звичайних об'єктів
+		// Инициализация обычных объектов
 		showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
 
 		document.addEventListener("click", showMoreActions);
 		window.addEventListener("resize", showMoreActions);
 
-		// Отримання об'єктів з медіа-запитами
+		// Получение объектов с медиазапросами
 		mdQueriesArray = dataMediaQueries(showMoreBlocks, "flsShowmoreMedia");
 		if (mdQueriesArray && mdQueriesArray.length) {
 			mdQueriesArray.forEach(mdQueriesItem => {
-				// Подія
+				// Событие
 				mdQueriesItem.matchMedia.addEventListener("change", function () {
 					initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 				});

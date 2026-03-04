@@ -1,4 +1,4 @@
-// Підключення функціоналу "Чортоги Фрілансера"
+// Підключення функціоналу 
 import { isMobile, slideUp, slideDown, slideToggle, FLS } from "@js/common/functions.js";
 // Підключення функціоналу модуля форм
 import { formValidate } from "../_functions.js";

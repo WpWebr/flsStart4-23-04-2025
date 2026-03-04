@@ -1,4 +1,4 @@
-﻿// Подключение функционала "Чертоги Фрилансера"
+// Подключение функционала 
 import { isMobile, gotoBlock, getHash, FLS, bodyUnlock } from "@js/common/functions.js";
 
 // Плавная навигация по странице
