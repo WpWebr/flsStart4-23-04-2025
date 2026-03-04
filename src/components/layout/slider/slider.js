@@ -16,7 +16,7 @@ EffectFade, Lazy, Manipulation
 Подробнее: https://swiperjs.com/
 */
 
-// Стилі Swiper
+// Стили Swiper
 // Подключение базовых стилей
 import "./slider.scss";
 // Полный набор стилей из node_modules
