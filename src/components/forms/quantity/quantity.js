@@ -1,4 +1,4 @@
-// Підключення функціоналу "Чортоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { FLS } from "@js/common/functions.js";
 
 import './quantity.scss'
