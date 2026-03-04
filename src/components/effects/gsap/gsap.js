@@ -1,12 +1,12 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+﻿// Подключение функционала "Чертоги Фрилансера"
 import { FLS } from "@js/common/functions.js";
-// Docs: https://www.npmjs.com/package/gsap
+// Документация: https://www.npmjs.com/package/gsap
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
-// Стилі модуля
+// Стили модуля
 import './gsap.scss'
 
 function gsapInit() {
-	// Example
+	// Пример
 	const chars = document.querySelectorAll('[data-fls-splittype][data-fls-gsap] .char')
 	console.log(chars);
 	gsap.from(chars, {
@@ -19,5 +19,3 @@ function gsapInit() {
 
 document.querySelector('[data-fls-gsap]') ?
 	window.addEventListener('load', gsapInit) : null
-
-
