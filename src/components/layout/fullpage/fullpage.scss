@@ -1,26 +1,26 @@
 body {
 	.--fullpage-init & {
-		// Щоб вимкнути оновлення сторінки свайпом на телефоні
+		// Чтобы отключить обновление страницы свайпом на телефоне
 		overflow: hidden;
 		touch-action: none;
 		overscroll-behavior: none;
 	}
 }
 
-// Оболонка секцій
+// Оболочка секций
 [data-fls-fullpage] {
 	min-height: 100svh;
 	.--fullpage-init & {
-		// Для того щоб секції не перекривали буллети
+		// Чтобы секции не перекрывали буллеты
 		z-index: 1;
-		// Відносно чого позиціонуються секції
+		// Относительно чего позиционируются секции
 		touch-action: none;
 		position: relative;
 		overflow: hidden;
 	}
 }
 
-// Секція
+// Секция
 [data-fls-fullpage-section] {
 	.--fullpage-switching & {
 		touch-action: none;
@@ -36,7 +36,7 @@ body {
 		overflow: auto;
 	}
 
-	// Модифікації
+	// Модификации
 	.--fullpage-init .slider-mode &,
 	.--fullpage-init .cards-mode & {
 		transition: transform 0.7s cubic-bezier(0.55, 0.085, 0, 0.99) 0s;
@@ -48,7 +48,7 @@ body {
 	}
 }
 
-// Оболонка буллетів
+// Оболочка буллетов
 .--fullpage-bullets {
 	position: fixed;
 	top: 50%;
@@ -73,7 +73,7 @@ body {
 		right: 50%;
 	}
 
-	// Булет
+	// Буллет
 	& .--fullpage-bullet {
 		cursor: pointer;
 		width: toRem(20);
