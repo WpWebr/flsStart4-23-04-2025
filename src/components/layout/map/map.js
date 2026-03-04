@@ -1,8 +1,8 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { FLS } from "@js/common/functions.js";
-// Підключення доповнення
+// Подключение дополнения
 import { Loader } from '@googlemaps/js-api-loader';
-// Підключення налаштувань
+// Подключение настроек
 import { MAP_STYLES, BREAKPOINTS, MAP_KEY } from './_settings.js';
 
 import './map.scss'
@@ -50,7 +50,7 @@ function mapInit() {
 		const markerDesktopSize = { width: 40, height: 57 };
 		const markerMobileSize = { width: 30, height: 42 };
 
-		// Розмір маркерів
+		// Размер маркеров
 		const markerSize = window.innerWidth < BREAKPOINTS.tablet ? markerMobileSize : markerDesktopSize;
 		const markers = await markersData.map(({ lat, lng, icon, title, markerZoom, markerPopup }) => {
 			let image
