@@ -1,23 +1,23 @@
-// Підключення функціоналу "Чортоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { FLS } from "@js/common/functions.js";
 
 import './marquee.scss'
 
-// Модуль бігучого рядку
+// Модуль бегущей строки
 const marquee = () => {
 	/*
-		 Інструкція:
-		 Структура: Можна вказувати будь які класи та теги елементам.
+		 Инструкция:
+		 Структура: Можно указывать любые классы и теги элементам.
 		 <div data-fls-marquee>
 			 <span>element one</span>
 			 <div>element two</div>
 		 </div>
-		 Додаткові налаштування (Можна не вказувати):
-		 data-fls-marquee-space='30' - Відступ між елементами (За замовчанням 30px) - можна вказувати в css стмлями
-		 data-fls-marquee-speed='1000' - Швидкість анімації (За замовчанням 1000) Вказувати в ms 1s = 1000
-		 data-fls-marquee-pause-mouse-enter - Зупиняти анімацію при наведенні миші.
-		 data-fls-marquee-direction='left' - Направлення анімації "top, right, bottom, left" (За замовчанням left)
-		 !Важливо: При використанні data-fls-marquee-direction 'top' або 'bottom' має бути фіксована висота + overflow: hidden;
+		 Дополнительные настройки (можно не указывать):
+		 data-fls-marquee-space='30' - Отступ между элементами (по умолчанию 30px) - можно указывать в CSS-стилях
+		 data-fls-marquee-speed='1000' - Скорость анимации (по умолчанию 1000), указывать в ms, 1s = 1000
+		 data-fls-marquee-pause-mouse-enter - Останавливать анимацию при наведении мыши.
+		 data-fls-marquee-direction='left' - Направление анимации "top, right, bottom, left" (по умолчанию left)
+		 !Важно: При использовании data-fls-marquee-direction 'top' или 'bottom' должна быть фиксированная высота + overflow: hidden;
 	 */
 
 	const $marqueeArray = document.querySelectorAll('[data-fls-marquee]');
@@ -31,7 +31,7 @@ const marquee = () => {
 
 	const { head } = document;
 
-	// Функція затримкованого виклику
+	// Функция отложенного вызова
 	function debounce(delay, fn) {
 		let timerId;
 		return (...args) => {
@@ -45,7 +45,7 @@ const marquee = () => {
 		};
 	}
 
-	// Подія зміни розмірів вьюпорта
+	// Событие изменения размеров вьюпорта
 	const onWindowWidthResize = (cb) => {
 		if (!cb && !isFunction(cb)) return;
 
@@ -65,7 +65,7 @@ const marquee = () => {
 		handleResize();
 	};
 
-	// Створюємо структуру
+	// Создаем структуру
 	const buildMarquee = (marqueeNode) => {
 		if (!marqueeNode) return;
 
@@ -80,7 +80,7 @@ const marquee = () => {
 		$marquee.innerHTML = htmlStructure;
 	};
 
-	// Функція отримання розмірів елементів
+	// Функция получения размеров элементов
 	const getElSize = ($el, isVertical) => {
 		if (isVertical) return $el.offsetHeight;
 		return $el.offsetWidth;
@@ -107,7 +107,7 @@ const marquee = () => {
 		let spaceBetween = spaceBetweenItem ? spaceBetweenItem : !isNaN(dataMarqueeSpace) ? dataMarqueeSpace : 30;
 		let startPosition = parseFloat($wrapper.getAttribute('data-fls-marquee-start')) || 0;
 
-		// Динамічні данні, вираховуються при роботі скрипту.
+		// Динамические данные, вычисляются при работе скрипта.
 		let sumSize = 0;
 		let firstScreenVisibleSize = 0;
 		let initialSizeElements = 0;
@@ -115,7 +115,7 @@ const marquee = () => {
 		let index = 0;
 		let counterDuplicateElements = 0;
 
-		// Ініціалізація івентів.
+		// Инициализация событий.
 		const initEvents = () => {
 			if (startPosition) $marqueeInner.addEventListener('animationiteration', onChangeStartPosition);
 
@@ -132,7 +132,7 @@ const marquee = () => {
 			onResize();
 		};
 
-		// Додавання базових стилів для корректної роботи анімації.
+		// Добавление базовых стилей для корректной работы анимации.
 		const setBaseStyles = (firstScreenVisibleSize) => {
 			let baseStyle = 'display: flex; flex-wrap: nowrap;';
 
@@ -158,7 +158,7 @@ const marquee = () => {
 			$marqueeInner.style.cssText = baseStyle;
 		};
 
-		// Функція повертає значення на яке потрібно змістити елементи при анімації.
+		// Функция возвращает значение, на которое нужно сместить элементы при анимации.
 		const setdirectionAnim = (totalWidth) => {
 			switch (direction) {
 				case 'right':
@@ -169,7 +169,7 @@ const marquee = () => {
 			}
 		};
 
-		// Функція анімації.
+		// Функция анимации.
 		const animation = () => {
 			const keyFrameCss = `@keyframes ${animName} {
 					 0% {
@@ -189,9 +189,9 @@ const marquee = () => {
 				}s infinite linear`;
 		};
 
-		// Функція роботи з елементами. (дублювання, вказання \ підрахунок розмірів)
+		// Функция работы с элементами (дублирование, указание и подсчет размеров)
 		const addDublicateElements = () => {
-			// Після зміни розмірів екрану, обнуляємо всі динамічні данні.
+			// После изменения размеров экрана обнуляем все динамические данные.
 			sumSize = firstScreenVisibleSize = initialSizeElements = counterDuplicateElements = index = 0;
 
 			const $parentNodeWidth = getElSize($wrapper, isVertical);
@@ -206,16 +206,16 @@ const marquee = () => {
 				$childrenEl = [...cacheArray];
 			}
 
-			// Додаємо базові стилів флексів для коректного підрахунку розмірів елементів.
+			// Добавляем базовые стили флексов для корректного подсчета размеров элементов.
 			$marqueeInner.style.display = 'flex';
 			if (isVertical) $marqueeInner.style.flexDirection = 'column';
-			// Обнуляємо кількість елементів щоб уникнути дублювання при зміні розмірів екрану.
+			// Обнуляем количество элементов, чтобы избежать дублирования при изменении размеров экрана.
 			$marqueeInner.innerHTML = '';
 			$childrenEl.forEach(($item) => {
 				$marqueeInner.append($item);
 			});
 
-			// Перед дублюванням елементів додаємо стилі відступів та вносимо розміри елементів до динамічних данних.
+			// Перед дублированием элементов добавляем стили отступов и вносим размеры элементов в динамические данные.
 			$childrenEl.forEach(($item) => {
 				if (isVertical) {
 					$item.style.marginBottom = `${spaceBetween}px`;
@@ -236,7 +236,7 @@ const marquee = () => {
 
 			const $multiplyWidth = $parentNodeWidth * 2 + initialSizeElements;
 
-			// Дублюємо елементи за необхідності.
+			// Дублируем элементы при необходимости.
 			for (; sumSize < $multiplyWidth; index += 1) {
 				if (!$childrenEl[index]) index = 0;
 
@@ -256,11 +256,11 @@ const marquee = () => {
 				}
 			}
 
-			// Додаємо базові стилі враховуючи обчислені значення ширин елементів.
+			// Добавляем базовые стили с учетом вычисленных значений ширин элементов.
 			setBaseStyles(firstScreenVisibleSize);
 		};
 
-		// Функція коректного визначення відступів між елементами (якщо відступи додані в CSS).
+		// Функция корректного определения отступов между элементами (если отступы добавлены в CSS).
 		const correctSpaceBetween = () => {
 			if (spaceBetweenItem) {
 				$items.forEach(($item) => $item.style.removeProperty('margin-right'));
@@ -270,7 +270,7 @@ const marquee = () => {
 			}
 		};
 
-		// Функція ініціалізації.
+		// Функция инициализации.
 		const init = () => {
 			correctSpaceBetween();
 			addDublicateElements();
@@ -278,13 +278,13 @@ const marquee = () => {
 			initEvents();
 		};
 
-		// Функція перезапуску анімації при зміні розмірів вьюпорта.
+		// Функция перезапуска анимации при изменении размеров вьюпорта.
 		const onResize = () => {
 			head.querySelector(`.${animName}`)?.remove();
 			init();
 		};
 
-		// Функція паузи при наведенні миші.
+		// Функция паузы при наведении мыши.
 		const onChangePaused = (e) => {
 			const { type, target } = e;
 
