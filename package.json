@@ -18,7 +18,7 @@
   "devDependencies": {
     "@davestewart/outliner": "latest",
     "@googlemaps/js-api-loader": "latest",
-    "@spiriit/vite-plugin-svg-spritemap": "latest",
+    "@spiriit/vite-plugin-svg-spritemap": "6.0.0",
     "@tailwindcss/vite": "latest",
     "@vitejs/plugin-react": "latest",
     "@vitejs/plugin-vue": "latest",
@@ -55,7 +55,7 @@
     "swiper": "latest",
     "tailwindcss": "latest",
     "tippy.js": "latest",
-    "vite": "latest",
+    "vite": "^6.0.0",
     "vite-plugin-add-version": "latest",
     "vite-plugin-ftp": "latest",
     "vite-plugin-inspect": "latest",
