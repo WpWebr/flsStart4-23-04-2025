@@ -1,4 +1,4 @@
-// Фнкціонал "Автовисота"
+// Функционал "Автовысота"
 export const autoHeight = () => {
 	const textareas = document.querySelectorAll('textarea[data-fls-input-autoheight]');
 	if (textareas.length) {
