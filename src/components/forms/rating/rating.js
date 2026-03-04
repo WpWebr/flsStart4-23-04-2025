@@ -1,4 +1,4 @@
-// Підключення функціоналу "Чортоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { FLS } from "@js/common/functions.js";
 
 import './rating.scss'
@@ -38,9 +38,9 @@ export function formRating() {
 		rating.insertAdjacentHTML("beforeend", ratingItems)
 	}
 	function formRatingGet(rating, ratingValue) {
-		// Тут відправка оцінки (ratingValue) на бекенд...
-		// Отримуємо нову седню оцінку formRatingSend()
-		// Або виводимо ту яку вказав користувач
+		// Здесь отправка оценки (ratingValue) на бэкенд...
+		// Получаем новую среднюю оценку formRatingSend()
+		// Или выводим ту, которую указал пользователь
 		const resultRating = ratingValue;
 		formRatingSet(rating, resultRating);
 	}
