@@ -10,7 +10,7 @@ document.addEventListener('click', (event) => {
 
    const target = event.target;
 
-   // Чітке керування станом бургер-меню
+   // Четкое управление состоянием бургер-меню
    if (target.closest('.burger-menu')) {
       const isActive = burger.classList.contains('_action');
 
@@ -24,7 +24,7 @@ document.addEventListener('click', (event) => {
       }
    }
 
-   // Клік по пункту головного меню
+   // Клик по пункту главного меню
    const menuItem = target.closest('.main-menu__items');
    if (menuItem) {
       const buttonName = menuItem.getAttribute('data-name');
@@ -40,13 +40,13 @@ document.addEventListener('click', (event) => {
       });
    }
 
-   // Клік поза меню — закриваємо підменю
+   // Клик вне меню - закрываем подменю
    if (!target.closest('.main-menu')) {
       navItems.forEach(item => item.classList.remove('_show'));
    }
 });
 
-// Обробка кнопок у лівій бічній панелі
+// Обработка кнопок в левой боковой панели
 contactBtns.forEach(btn => {
    btn.addEventListener('click', () => {
       const btnName = btn.getAttribute('data-name');
