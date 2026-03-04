@@ -2,8 +2,6 @@
   "name": "flsstart",
   "type": "module",
   "version": "4.0.0",
-  "homepage": "https://www.patreon.com/collection/1439491?view=condensed",
-  "author": "Andrikanych Yevhen <template@fls.guru> (https://www.youtube.com/c/freelancerlifestyle)",
   "scripts": {
     "dev": "vite",
     "online": "vite --host",
@@ -12,7 +10,7 @@
     "zip": "vite build -- --zip",
     "tmp": "vite build -- --tmp --zip",
     "deploy": "vite build -- --ftp",
-	 "add": "node template_modules/createcomponent.js",
+    "add": "node template_modules/createcomponent.js",
     "wp": "node template_modules/wordpress/terminal.js up -d && vite -- --wp",
     "wpbuild": "node template_modules/wordpress/terminal.js up -d && vite build -- --wp",
     "wpstop": "node template_modules/wordpress/terminal.js down"
