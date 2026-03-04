@@ -1,4 +1,4 @@
-// Функціонал "Показати пароль"
+// Функционал "Показать пароль"
 export const viewPass = () => {
 	document.addEventListener("click", function (e) {
 		let targetElement = e.target;
