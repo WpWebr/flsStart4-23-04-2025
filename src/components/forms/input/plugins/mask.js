@@ -1,4 +1,4 @@
-// Підключення модуля
+// Подключение модуля
 import "inputmask/dist/inputmask.min.js";
 
 function inputMask() {
