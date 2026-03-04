@@ -17,7 +17,7 @@ export default {
   },
   server: { // сервер
     path: './', // путь
-    copyfiles: true, // сопии файлов с files
+    copyfiles: true, // копии файлов с files
     version: true, // версия файлов
     hostname: 'localhost',
     port: '1111'
@@ -87,7 +87,7 @@ export default {
   ftp: { // прод на сервер
     host: '127.0.0.1',
     port: 21,
-    remoteDir: `/www/.../${projectName}`, // projectName -имя проекта
+    remoteDir: `/www/.../${projectName}`, // projectName - имя проекта
     user: 'root',
     password: '123456',
   },
@@ -124,7 +124,7 @@ export default {
   coffee: {
     enable: true,
     text: `(!!)Хватит работать, сделай перерыв ☕️`,
-    interval: 45
+    interval: 45 // Интервал
   },
   novaposhta: { // Новая почта
     enable: false,
