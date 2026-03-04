@@ -1,6 +1,6 @@
-// Підключення функціоналу "Чортоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { FLS } from "@js/common/functions.js"
-// Підключення стилів
+// Подключение стилей
 import "./novaposhta.scss"
 
 const citiesFile = `files/novaposhta/cities.json`
