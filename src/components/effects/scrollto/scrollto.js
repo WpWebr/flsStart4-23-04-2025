@@ -1,16 +1,16 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+﻿// Подключение функционала "Чертоги Фрилансера"
 import { isMobile, gotoBlock, getHash, FLS, bodyUnlock } from "@js/common/functions.js";
 
-// Плавна навігація по сторінці
+// Плавная навигация по странице
 export function pageNavigation() {
-	// data-fls-scrollto - вказати ID блоку
-	// data-fls-scrollto-header - враховувати header
-	// data-fls-scrollto-top - недокрутити на вказаний розмір
-	// Працюємо при натисканні на пункт
+	// data-fls-scrollto - указать ID блока
+	// data-fls-scrollto-header - учитывать header
+	// data-fls-scrollto-top - не докрутить на указанный размер
+	// Работаем при нажатии на пункт
 	document.addEventListener("click", pageNavigationAction);
-	// Якщо підключено scrollWatcher, підсвічуємо поточний пункт меню
+	// Если подключен scrollWatcher, подсвечиваем текущий пункт меню
 	document.addEventListener("watcherCallback", pageNavigationAction);
-	// Основна функція
+	// Основная функция
 	function pageNavigationAction(e) {
 		if (e.type === "click") {
 			const targetElement = e.target;
@@ -25,7 +25,7 @@ export function pageNavigation() {
 					const fullpageSectionId = fullpageSection ? +fullpageSection.dataset.flsFullpageId : null;
 					if (fullpageSectionId !== null) {
 						window.fullpage.switchingSection(fullpageSectionId);
-						// Закриваємо меню, якщо воно відкрите
+						// Закрываем меню, если оно открыто
 						if (document.documentElement.hasAttribute("[data-fls-menu-open]")) {
 							bodyUnlock()
 							document.documentElement.removeAttribute("[data-fls-menu-open]")
@@ -39,7 +39,7 @@ export function pageNavigation() {
 		} else if (e.type === "watcherCallback" && e.detail) {
 			const entry = e.detail.entry;
 			const targetElement = entry.target;
-			// Обробка пунктів навігації, якщо вказано значення navigator, підсвічуємо поточний пункт меню
+			// Обработка пунктов навигации: если указано navigator, подсвечиваем текущий пункт меню
 			if (targetElement.dataset.flsWatcher === 'navigator') {
 				const navigatorActiveItem = document.querySelector(`[data-fls-scrollto]._navigator-active`);
 				let navigatorCurrentItem;
@@ -55,20 +55,20 @@ export function pageNavigation() {
 					}
 				}
 				if (entry.isIntersecting) {
-					// Бачимо об'єкт
+					// Видим объект
 					// navigatorActiveItem ? navigatorActiveItem.classList.remove('_navigator-active') : null;
 					navigatorCurrentItem ? navigatorCurrentItem.classList.add('--navigator-active') : null;
 					//const activeItems = document.querySelectorAll('._navigator-active');
 					//activeItems.length > 1 ? chooseOne(activeItems) : null
 				} else {
-					// Не бачимо об'єкт
+					// Не видим объект
 					navigatorCurrentItem ? navigatorCurrentItem.classList.remove('--navigator-active') : null;
 				}
 			}
 		}
 	}
 	function chooseOne(activeItems) { }
-	// Прокручування по хешу
+	// Прокрутка по хешу
 	if (getHash()) {
 		let goToHash;
 		if (document.querySelector(`#${getHash()}`)) {
