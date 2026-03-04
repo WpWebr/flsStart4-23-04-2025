@@ -1,4 +1,4 @@
-// Підключення функціоналу "Чортоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { bodyLockStatus, bodyLockToggle, FLS } from "@js/common/functions.js"
 
 import './cover.scss'
