@@ -1,6 +1,6 @@
 import { FLS, slideUp, slideDown, slideToggle, dataMediaQueries, getHash, setHash } from "@js/common/functions.js";
 
-// Підключення базових стилів
+// Подключение базовых стилей
 import "./tabs.scss";
 
 export function tabs() {
@@ -22,11 +22,11 @@ export function tabs() {
 			initTabs(tabsBlock);
 		});
 
-		// Отримання слойлерів з медіа-запитами
+		// Получение спойлеров с медиазапросами
 		let mdQueriesArray = dataMediaQueries(tabs, "flsTabs");
 		if (mdQueriesArray && mdQueriesArray.length) {
 			mdQueriesArray.forEach(mdQueriesItem => {
-				// Подія
+				// Событие
 				mdQueriesItem.matchMedia.addEventListener("change", function () {
 					setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 				});
@@ -34,7 +34,7 @@ export function tabs() {
 			});
 		}
 	}
-	// Встановлення позицій заголовків
+	// Установка позиций заголовков
 	function setTitlePosition(tabsMediaArray, matchMedia) {
 		tabsMediaArray.forEach(tabsMediaItem => {
 			tabsMediaItem = tabsMediaItem.item;
@@ -56,7 +56,7 @@ export function tabs() {
 			});
 		});
 	}
-	// Робота з контентом
+	// Работа с контентом
 	function initTabs(tabsBlock) {
 		let tabsTitles = tabsBlock.querySelectorAll('[data-fls-tabs-titles]>*');
 		let tabsContent = tabsBlock.querySelectorAll('[data-fls-tabs-body]>*');
