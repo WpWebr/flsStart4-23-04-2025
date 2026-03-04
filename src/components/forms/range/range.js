@@ -1,10 +1,10 @@
-// Підключення з node_modules
+// Подключение из node_modules
 import * as noUiSlider from 'nouislider';
 
-// Підключення стилів з scss/base/forms/range.scss 
+// Подключение стилей из scss/base/forms/range.scss 
 import './range.scss';
 
-// Підключення стилів з node_modules
+// Подключение стилей из node_modules
 // import 'nouislider/dist/nouislider.css';
 
 export function rangeInit() {
