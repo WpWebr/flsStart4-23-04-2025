@@ -1,4 +1,4 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { FLS } from "@js/common/functions.js";
 
 import './scroll.scss'
@@ -17,10 +17,10 @@ export function headerScroll() {
 			!header.classList.contains('--header-scroll') ? header.classList.add('--header-scroll') : null;
 			if (headerShow) {
 				if (scrollTop > scrollDirection) {
-					// downscroll code
+					// Код прокрутки вниз
 					header.classList.contains('--header-show') ? header.classList.remove('--header-show') : null;
 				} else {
-					// upscroll code
+					// Код прокрутки вверх
 					!header.classList.contains('--header-show') ? header.classList.add('--header-show') : null;
 				}
 				timer = setTimeout(() => {
