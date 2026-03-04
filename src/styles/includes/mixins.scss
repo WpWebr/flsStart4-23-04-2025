@@ -24,7 +24,7 @@
 	}
 }
 
-// Трикутник
+// Треугольник
 @mixin triangle($direction, $color, $size, $size2: $size) {
 	@if $direction == left {
 		border: #{$size2}px solid transparent;
@@ -51,7 +51,7 @@
 	grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
 }
 
-// Адаптивна властивість (clamp)
+// Адаптивное свойство (clamp)
 @mixin adaptiveValue($property, $startSize, $minSize: settings.$minSize, $keepSize: 0, $widthFrom: settings.$containerWidth, $widthTo: settings.$minWidth) {
 	@if ($startSize==0) {
 		$startSize: 0.000001;
@@ -64,11 +64,11 @@
 		$widthFrom: settings.$maxWidth;
 	}
 
-	// Брейк-поїнти в EM
+	// Брейкпоинты в EM
 	$widthFromMedia: toEm($widthFrom);
 	$widthToMedia: toEm($widthTo);
 
-	// Формула плаваючого значення
+	// Формула плавающего значения
 	// Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
 	$slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
 	$yIntersection: -$widthTo * $slope + $minSize;
@@ -77,20 +77,20 @@
 	}
 	$flyValue: #{$yIntersection}px " + " #{$slope * 100}vw;
 
-	// Отримання значення властивості
+	// Получение значения свойства
 	$propertyValue: #{"clamp(" #{$minSize}px "," $flyValue "," #{$startSize}px ")"};
-	// Якщо негативні значення
+	// Если отрицательные значения
 	@if ($minSize > $startSize) {
 		$propertyValue: #{"clamp(" #{$startSize}px "," $flyValue "," #{$minSize}px ")"};
 	}
 
-	// Встановлюємо значення за замовчуванням
+	// Устанавливаем значение по умолчанию
 	@if $keepSize != 1 and $keepSize != 3 {
 		@media (min-width: $widthFromMedia) {
 			#{$property}: #{$startSize}px;
 		}
 	}
-	// Адаптуємо розмір у проміжку між зазначеними ширинами в'юпорту
+	// Адаптируем размер в промежутке между указанными ширинами вьюпорта
 	@media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
 		#{$property}: $propertyValue;
 	}
