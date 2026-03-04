@@ -355,7 +355,7 @@ class FullPage {
 		return element.scrollHeight !== window.innerHeight
 	}
 	//===============================
-	// Видалення класів 
+		// Удаление классов
 	removeClasses() {
 		for (let index = 0; index < this.sections.length; index++) {
 			const section = this.sections[index];
@@ -521,7 +521,7 @@ class FullPage {
 	//===============================
 	// Событие прокрутки колесом мыши
 	wheel(e) {
-		// Перевірка на наявність НЕ ПОДІЙНОГО блоку
+		// Проверка на наличие НЕ СОБЫТИЙНОГО блока
 		if (e.target.closest(this.options.noEventSelector)) return
 		// Отримання напряму руху
 		const yCoord = e.deltaY;
@@ -570,13 +570,13 @@ class FullPage {
 			document.documentElement.classList.add(this.options.wrapperAnimatedClass);
 			this.wrapper.classList.add(this.options.wrapperAnimatedClass);
 			//this.wrapper.addEventListener('transitionend', this.events.transitionEnd);
-			// Видалення класів
+				// Удаление классов
 			this.removeClasses();
 			// Смена классов 
 			this.setClasses();
 			// Смена стилей
 			this.setStyle();
-			// Установка стилей для буллетів
+				// Установка стилей для буллетов
 			if (this.options.bullets) this.setActiveBullet(this.activeSectionId);
 
 			// Устанавливаем задержку переключения
@@ -622,7 +622,7 @@ class FullPage {
 			this.bulletsWrapper = bullets;
 		}
 
-		// Створення буллетів
+		// Создание буллетов
 		if (this.bulletsWrapper) {
 			for (let index = 0; index < this.sections.length; index++) {
 				const span = document.createElement('span');
