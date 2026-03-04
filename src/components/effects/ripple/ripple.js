@@ -1,41 +1,41 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+﻿// Подключение функционала "Чертоги Фрилансера"
 import { FLS } from "@js/common/functions.js";
 
 import './ripple.scss';
 
 export function rippleEffect() {
-	// Подія кліку на кнопці
+	// Событие клика по кнопке
 	document.addEventListener("click", function (e) {
 		const targetItem = e.target;
 		if (targetItem.closest('[data-fls-ripple]')) {
-			// Константи
+			// Константы
 			const button = targetItem.closest('[data-fls-ripple]');
 			const ripple = document.createElement('span');
 			const diameter = Math.max(button.clientWidth, button.clientHeight);
 			const radius = diameter / 2;
 
-			// Формування елементу
+			// Формирование элемента
 			ripple.style.width = ripple.style.height = `${diameter}px`;
 			ripple.style.left = `${e.pageX - (button.getBoundingClientRect().left + scrollX) - radius}px`;
 			ripple.style.top = `${e.pageY - (button.getBoundingClientRect().top + scrollY) - radius}px`;
 			ripple.classList.add('--ripple');
 
-			// Видалення існуючого елементу (опціонально)
+			// Удаление существующего элемента (опционально)
 			button.dataset.ripple === 'once' && button.querySelector('--ripple') ?
 				button.querySelector('--ripple').remove() : null;
 
-			// Додавання елементу
+			// Добавление элемента
 			button.appendChild(ripple);
 
-			// Отримання часу дії анімації
+			// Получение времени действия анимации
 			const timeOut = getAnimationDuration(ripple);
 
-			// Видалення елементу
+			// Удаление элемента
 			setTimeout(() => {
 				ripple ? ripple.remove() : null;
 			}, timeOut);
 
-			// Функтія отримання часу дії анімації
+			// Функция получения времени действия анимации
 			function getAnimationDuration() {
 				const aDuration = window.getComputedStyle(ripple).animationDuration;
 				return aDuration.includes('ms') ?
